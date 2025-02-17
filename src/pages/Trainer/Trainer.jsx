@@ -14,7 +14,7 @@ const API_BASE_URL =
   "https://0002-caoa-posvenda-api-evaluation.azurewebsites.net/api/v1";
 
 const ANSWER_BASE_URL =
-  "https://0002-caoa-posvenda-api-evaluation.azurewebsites.net";
+  "http://0002-caoa-posvenda-api-evaluation.azurewebsites.net";
 
 const Trainer = () => {
   const navigate = useNavigate();
