@@ -20,6 +20,7 @@ const Trainer = () => {
   });
   const [questions, setQuestions] = useState([]);
   const [selectedQuestion, setSelectedQuestion] = useState(null);
+  const [question, setQuestion] = useState("");
 
   useEffect(() => {
     fetchRubrics();
@@ -138,6 +139,7 @@ const Trainer = () => {
     const selectedId = e.target.value;
     const selectedQuestion = questions.find((q) => q._id === selectedId);
     setSelectedQuestion(selectedQuestion);
+    setQuestion(selectedId);
   };
 
   const handleCreateQuestion = (question) => {
@@ -222,14 +224,20 @@ const Trainer = () => {
             <h4>Pergunta: {selectedQuestion.question}</h4>
           </div>
         )}
-        <ContactManager />
+        <ContactManager questionId={question} rubricId={selectedRubric} />
       </div>
       <div className="return-button">
+      <Button
+          id="evaluation"
+          onClick={() => navigate("/trainer/evaluation")}
+          buttonText={"Avaliação"}
+        />
         <Button
           id="demo"
           onClick={() => navigate("/trainer/demo")}
           buttonText={"Demonstração"}
         />
+
         <Button onClick={() => navigate("/")} buttonText={"Página inicial"} />
       </div>
     </div>
